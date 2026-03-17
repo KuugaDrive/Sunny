@@ -4,12 +4,13 @@ services:
     environment:
       POSTGRES_DB: db_sunny
       POSTGRES_USER: admin
-      POSTGRES_PASSWORD: "NieR:Automata"
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
       - "5433:5432"
 
   backend_laravel:
     build: ./backend_laravel
+    working_dir: /app
     ports:
       - "8000:8000"
     volumes:
@@ -19,7 +20,7 @@ services:
       DB_PORT: 5432
       DB_DATABASE: db_sunny
       DB_USERNAME: admin
-      DB_PASSWORD: "NieR:Automata"
+      DB_PASSWORD: ${DB_PASSWORD}
     depends_on:
       - database_pg
 
