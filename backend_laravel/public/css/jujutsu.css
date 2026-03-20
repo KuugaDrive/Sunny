@@ -1,0 +1,347 @@
+ @font-face {
+    font-family: 'JujutsuCustom'; /* Ini nama panggilan font-mu, bebas diisi apa saja */
+    src: url('/fonts/jujutsukaisen.ttf') format('truetype'); /* Ganti dengan nama file aslimu */
+    font-weight: normal;
+    font-style: normal;
+}
+ 
+ #home {
+    padding-top: 15vh; /* Beri ruang bernapas di atas Kanji agar tidak rapat navigasi */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memastikan semua elemen berpusat */
+    width: 100%; /* Memastikan kontainer judul tidak memotong teks */
+}
+
+ body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            /* Mengubah agar bisa di-scroll dengan mulus */
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            background-color: #87CEEB; /* Warna dasar langit biru */
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a24;
+        }
+
+        /* Navigasi / Header */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        nav a {
+            color: #1a1a24;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 0 25px;
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 0px #F4D03F;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #fff;
+            text-shadow: 2px 2px 5px #F4D03F;
+            transform: scale(1.1);
+        }
+
+        /* Latar Belakang Langit Biru Cerah (Fixed/Parallax) */
+        .background-sky {
+            position: fixed; /* Tetap di tempat saat di-scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1464802686167-b939a6910659?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.85;
+            z-index: -1; /* Berada paling belakang */
+        }
+
+        /* Pengaturan Umum Section */
+        section {
+            min-height: 100vh; /* Setiap section memenuhi minimal 1 layar */
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+            padding: 80px 20px;
+            box-sizing: border-box;
+        }
+
+        /* ================= HOME SECTION ================= */
+        /* Logo Utama */
+       h1 {
+            font-family: 'JujutsuCustom', sans-serif;
+            font-size: 8vw;
+            margin: 5;
+            color: #ffffff; /* Huruf dalam tetap putih */
+            letter-spacing: 2px;
+            
+            /* HAPUS -webkit-text-stroke SEPENUHNYA! */
+            
+            /* Gunakan Text-Shadow Berlapis sebagai pengganti Stroke + 3D Merah + Aura Hitam */
+            text-shadow: 
+                /* 1. Outline Hitam Solid (4 arah mata angin menyelimuti luar huruf) */
+                -3px -3px 0 #1a1a24,
+                3px -3px 0 #1a1a24,
+                -3px  3px 0 #1a1a24,
+                3px  3px 0 #1a1a24,
+                
+                /* 2. Efek 3D Merah Darah tebal ke arah kanan bawah */
+                8px 8px 0px #8a0303,
+                
+                /* 3. Aura Kutukan Hitam (Blur) */
+                15px 15px 20px rgba(0, 0, 0, 0.8);
+                
+            text-align: center;
+            line-height: 1.2;
+        }
+        /* Subjudul */
+        h2 {
+            font-size: 1.5vw;
+            margin: -10px 0 40px 0;
+            color: #fff;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.4);
+            padding: 5px 20px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        /* Tombol Scroll Down */
+        .scroll-btn {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px solid #F4D03F;
+            border-radius: 30px;
+            color: #1a1a24;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .scroll-btn:hover {
+            background: #F4D03F;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(244, 208, 63, 0.4);
+        }
+
+        /* ================= GENERAL GLASS PANEL ================= */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            text-align: center;
+            max-width: 800px;
+            color: #1a1a24;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 3rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #1a1a24;
+            text-shadow: 2px 2px 0px #F4D03F, 0px 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .glass-panel p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        /* ================= CHARACTERS SECTION ================= */
+        .character-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 20px;
+        }
+
+        .char-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 30px 20px;
+            backdrop-filter: blur(8px);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .char-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: #F4D03F;
+            box-shadow: 0 10px 25px rgba(244, 208, 63, 0.3);
+        }
+
+        .char-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #333;
+            margin: 0 auto 20px auto;
+            border: 4px solid #F4D03F;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .char-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .char-card h4 {
+            font-family: 'Cinzel Decorative', serif;
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: #1a1a24;
+        }
+
+        .char-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        /* ================= API PANEL SECTION ================= */
+        .api-panel {
+            min-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .api-panel:hover {
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.5);
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .panel-subtitle {
+            color: #000;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+        }
+
+        #curse-text {
+            color: #1a1a24;
+            font-size: 2.2rem;
+            font-weight: 800;
+            font-family: 'Cinzel Decorative', serif;
+            text-shadow: 2px 2px 0px #F4D03F;
+            min-height: 50px;
+            margin-top: 10px;
+        }
+
+        /* Efek Animasi Pecahan Kaca */
+        .glass-container {
+            position: fixed; /* Berubah menjadi fixed agar mengambang di seluruh halaman */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .shard {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 10px rgba(255,255,255,0.2), inset 0 0 10px rgba(255,255,255,0.5);
+            backdrop-filter: blur(2px);
+            animation: float-up linear infinite;
+        }
+
+        .shard:nth-child(3n) { clip-path: polygon(50% 0%, 0% 100%, 100% 100%); }
+        .shard:nth-child(3n+1) { clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%); }
+        .shard:nth-child(3n+2) { clip-path: polygon(0% 20%, 60% 20%, 60% 80%, 0% 80%); }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-20vh) rotate(360deg) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .loading {
+            animation: blink 1.5s infinite;
+            color: #555 !important;
+            text-shadow: none !important;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        /* Footer */
+        footer {
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            position: relative;
+            z-index: 10;
+            font-size: 0.8rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Responsif untuk layar kecil */
+        @media (max-width: 768px) {
+            h1 { font-size: 12vw; }
+            h2 { font-size: 3vw; }
+            .section-title { font-size: 2rem; }
+            nav a { margin: 0 10px; font-size: 0.9rem; }
+        }

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CharacterController;
 
-Route::get('/', function () {
-    return 'Halo Dunia! Laravel saya berjalan dari dalam Docker!';
-});
+
+Route::get('/',[CharacterController::class, 'index']);
